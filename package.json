@@ -1,0 +1,20 @@
+{
+  "name": "daylight-weather",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A desktop and web weather forecast app",
+  "author": "Daylight",
+  "main": "desktop.cjs",
+  "desktopSection": "weather",
+  "scripts": {
+    "start": "node server.mjs",
+    "desktop": "electron .",
+    "test": "node --check desktop.cjs && node --check desktop-ui.js && node --check server.mjs",
+    "build:windows": "electron-builder --config electron-builder.config.cjs --win portable --x64",
+    "test:desktop": "npm run build:windows && node desktop-smoke.mjs \"dist\\Daylight-Weather-1.0.0-win-x64.exe\" weather"
+  },
+  "devDependencies": {
+    "electron": "^42.0.0",
+    "electron-builder": "^26.0.12"
+  }
+}
